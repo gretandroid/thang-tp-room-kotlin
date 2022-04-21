@@ -13,14 +13,9 @@ import java.lang.String
 import kotlin.Int
 
 
-class PersonAdapter(personList: List<PersonneEntity>, adapterListener: PersonAdapterListener) :
+class PersonAdapter(val personList: List<PersonneEntity>, val adapterListener: PersonAdapterListener) :
     RecyclerView.Adapter<PersonAdapter.ViewHolder>() {
-    private val personList: List<PersonneEntity>
-    private val adapterListener: PersonAdapterListener
-    init {
-        this.personList = personList
-        this.adapterListener = adapterListener
-    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.row, parent, false)
@@ -35,6 +30,7 @@ class PersonAdapter(personList: List<PersonneEntity>, adapterListener: PersonAda
             idTextView.setText(String.valueOf(person.id))
             nomTextView.setText(person.nom)
             dateTextView.setText(TestData.formatter.format(person.date))
+            iconImageView.tag = Boolean.FALSE
             iconImageView.setOnClickListener { view: View? ->
                 // change to check image
                 if (iconImageView.tag === Boolean.TRUE) {
