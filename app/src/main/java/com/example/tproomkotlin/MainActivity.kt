@@ -9,7 +9,6 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.tproomkotlin.database.PersonneEntity
 import com.example.tproomkotlin.database.TestData
 import com.example.tproomkotlin.databinding.ActivityMainBinding
@@ -18,7 +17,7 @@ import com.example.tproomkotlin.viewmodel.MainViewModel
 
 
 class MainActivity : AppCompatActivity(), PersonAdapter.PersonAdapterListener {
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     private var adapter: PersonAdapter? = null
     private val personList: MutableList<PersonneEntity> = ArrayList<PersonneEntity>()
     private lateinit var mViewModel: MainViewModel
@@ -92,7 +91,6 @@ class MainActivity : AppCompatActivity(), PersonAdapter.PersonAdapterListener {
 
     private fun refreshMenuItems() {
         invalidateOptionsMenu()
-
     }
 
     private fun refreshRecyclerView() {
